@@ -1,0 +1,7 @@
+<!-- Add these keys to your project's Info.plist under <dict> ... </dict> -->
+<key>NSLocationWhenInUseUsageDescription</key>
+<string>This app uses your location to display GPS coordinates.</string>
+<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+<string>This app uses your location to display GPS coordinates even when active in the foreground.</string>
+<key>NSMotionUsageDescription</key>
+<string>This app uses motion and compass sensors to show heading and motion data.</string>
