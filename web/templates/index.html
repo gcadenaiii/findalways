@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>findalways</title>
+  <meta name="theme-color" content="#0b1220">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="apple-touch-icon" href="/static/icons/icon-192.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="stylesheet" href="/static/css/styles.css">
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker.register("/service-worker.js")
+          .catch(err => console.warn("Service worker registration failed:", err));
+      });
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <h1>findalways</h1>
+    <button id="install" hidden>Install App</button>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>Permissions</h2>
+      <p>Tap to enable motion/orientation sensors and request GPS (required by iOS Safari).</p>
+      <button id="enable">Enable Sensors</button>
+      <div id="status" class="status">Waiting for user gesture…</div>
+    </section>
+
+    <section class="grid">
+      <div class="card">
+        <h3>Compass</h3>
+        <div class="compass">
+          <div class="dial"></div>
+          <div id="needle" class="needle"></div>
+        </div>
+        <pre id="heading">--°</pre>
+      </div>
+
+      <div class="card">
+        <h3>Motion</h3>
+        <pre id="motion">acc: —
+gyro: —</pre>
+      </div>
+
+      <div class="card">
+        <h3>Magnetometer (raw)</h3>
+        <pre id="mag">—</pre>
+      </div>
+
+      <div class="card">
+        <h3>GPS</h3>
+        <pre id="gps">—</pre>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>findalways · Installable PWA · Works best over HTTPS. On iOS, use Safari.</p>
+  </footer>
+
+  <script src="/static/js/app.js"></script>
+</body>
+</html>
